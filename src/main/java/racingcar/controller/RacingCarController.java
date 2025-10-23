@@ -19,5 +19,15 @@ public class RacingCarController {
         for (String name : carNames) {
             cars.add(new Car(name));
         }
+
+        for (int i = 0; i < inputRounds; i++) {
+            for (Car car : cars) {
+                car.moveCar();
+            }
+            OutputView.printGameResult(cars);
+        }
+
+        List<String> winners = Winners.calculateWinners(cars);
+        OutputView.printGameWinner(winners);
     }
 }
