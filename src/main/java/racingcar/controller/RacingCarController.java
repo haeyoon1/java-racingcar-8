@@ -8,9 +8,8 @@ public class RacingCarController {
 
     public void run() {
         String inputCarNames = InputView.inputCars();
+        Cars cars = Cars.fromInput(inputCarNames);
         int inputRounds = InputView.inputRound();
-
-        Cars cars = Cars.initializeCars(inputCarNames);
 
         OutputView.printGameResultMessage();
         startRacing(cars, inputRounds);
