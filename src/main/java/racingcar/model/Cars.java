@@ -9,15 +9,20 @@ public class Cars {
         this.cars = cars;
     }
 
-    public List<String> calculateWinners() {
+    public Cars calculateWinners() {
         int maxPosition = cars.stream()
             .mapToInt(Car::getPosition)
             .max()
             .getAsInt();
 
-        return cars.stream()
+        List<Car> carList =  cars.stream()
             .filter(car -> car.getPosition() == maxPosition)
-            .map(Car::getName)
             .toList();
+
+        return new Cars(carList);
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
