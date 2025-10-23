@@ -1,10 +1,7 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.Game;
 import racingcar.model.Cars;
-import racingcar.util.InputParser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,23 +11,9 @@ public class RacingCarController {
         String inputCars = InputView.inputCars();
         int inputRounds = InputView.inputRound();
 
-        List<String> carNames = InputParser.splitCarNames(inputCars);
-        List<Car> carList = new ArrayList<>();
+        Game game = new Game();
+        Cars winners = game.carRacing(inputCars, inputRounds);
 
-        Cars cars = new Cars(carList);
-
-        for (String name : carNames) {
-            carList.add(new Car(name));
-        }
-
-        for (int i = 0; i < inputRounds; i++) {
-            for (Car car : carList) {
-                car.moveCar();
-            }
-            OutputView.printGameResult(carList);
-        }
-
-        List<String> winners = cars.calculateWinners();
         OutputView.printGameWinner(winners);
     }
 }
