@@ -8,7 +8,7 @@ public class Car {
     private static final int MOVE_STANDARD = 4;
     private static final int MOVE_DISTANCE = 1;
 
-    private String name;
+    private final String name;
     private int position = 0;
 
     public Car(String name) {
@@ -18,7 +18,7 @@ public class Car {
 
     private void validateCarName(String name) {
         if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException(Message.INVALID_CAR_INPUT.getValue());
+            throw new IllegalArgumentException(Message.INVALID_CAR_INPUT.getMessage());
         }
     }
 

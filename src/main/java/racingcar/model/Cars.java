@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.List;
 
 public class Cars {
+
     private List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -15,7 +16,7 @@ public class Cars {
             .max()
             .getAsInt();
 
-        List<Car> carList =  cars.stream()
+        List<Car> carList = cars.stream()
             .filter(car -> car.getPosition() == maxPosition)
             .toList();
 

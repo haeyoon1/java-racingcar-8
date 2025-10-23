@@ -8,16 +8,15 @@ public enum Message {
     CAR_NAME_MAX_LENGTH_LIMIT("자동차 이름은 5자 이하입니다."),
     CAR_NAME_MIN_LENGTH_LIMIT("자동차 이름은 1자 이상입니다."),
 
-    WINNING_CAR_LIST_EMPTY("우승자는 한 명 이상입니다.")
-    ;
+    WINNING_CAR_LIST_EMPTY("우승자는 한 명 이상입니다.");
 
-    private final String value;
+    private final String message;
 
-    Message(String value) {
-        this.value = value;
+    Message(String message) {
+        this.message = message;
     }
 
-    public String getValue() {
-        return value;
+    public String getMessage() {
+        return message;
     }
 }
