@@ -22,7 +22,7 @@ public class OutputView {
         List<Car> CarList = cars.getCars();
         String winnersCars = CarList.stream()
             .map(Car::getName)
-            .collect(Collectors.joining(","));
+            .collect(Collectors.joining(", "));
 
         System.out.println("최종 우승자 : " + winnersCars);
     }
