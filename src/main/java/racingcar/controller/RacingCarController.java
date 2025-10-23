@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.model.Cars;
-import racingcar.model.Game;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -11,9 +10,19 @@ public class RacingCarController {
         String inputCarNames = InputView.inputCars();
         int inputRounds = InputView.inputRound();
 
-        Game game = new Game();
-        Cars winners = game.carRacing(inputCarNames, inputRounds);
+        Cars cars = Cars.initializeCars(inputCarNames);
 
+        OutputView.printGameResultMessage();
+        startRacing(cars, inputRounds);
+
+        Cars winners = cars.calculateWinners();
         OutputView.printGameWinner(winners);
+    }
+
+    private void startRacing(Cars cars, int inputRounds) {
+        for (int i = 0; i < inputRounds; i++) {
+            cars.moveAll(cars);
+            OutputView.printGameResult(cars);
+        }
     }
 }

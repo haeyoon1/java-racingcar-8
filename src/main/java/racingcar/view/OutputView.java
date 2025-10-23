@@ -7,6 +7,10 @@ import racingcar.model.Cars;
 
 public class OutputView {
 
+    public static void printGameResultMessage(){
+        System.out.println("\n실행 결과");
+    }
+
     public static void printGameResult(Cars cars) {
         for (Car car : cars.getCars()) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
