@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Winners;
+import racingcar.util.InputParser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,7 +14,7 @@ public class RacingCarController {
         String inputCars = InputView.inputCars();
         int inputRounds = InputView.inputRound();
 
-        List<String> carNames = Car.splitCarNames(inputCars);
+        List<String> carNames = InputParser.splitCarNames(inputCars);
         List<Car> cars = new ArrayList<>();
 
         for (String name : carNames) {

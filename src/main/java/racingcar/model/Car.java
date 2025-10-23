@@ -1,8 +1,6 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Arrays;
-import java.util.List;
+import racingcar.util.RandomGenerator;
 
 public class Car {
 
@@ -13,16 +11,8 @@ public class Car {
         this.name = name;
     }
 
-    public static List<String> splitCarNames(String carsInput) {
-        return Arrays.asList(carsInput.split(","));
-    }
-
-    private int randomGenerator() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
     public void moveCar() {
-        int number = randomGenerator();
+        int number = RandomGenerator.randomGenerator();
         if (number < 4) {
             return;
         }
