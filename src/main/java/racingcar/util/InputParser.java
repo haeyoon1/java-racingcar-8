@@ -8,6 +8,8 @@ public class InputParser {
     private static final String PARSER = ",";
 
     public static List<String> splitCarNames(String cars) {
-        return Arrays.asList(cars.split(PARSER));
+        return Arrays.stream(cars.split(PARSER))
+            .filter(name -> !name.isBlank())
+            .toList();
     }
 }
