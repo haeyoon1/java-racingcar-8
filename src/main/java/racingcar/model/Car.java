@@ -18,7 +18,7 @@ public class Car {
     }
 
     private void validateCarName(String name) {
-        if (name.length() >= MAX_CAR_NAME_LENGHT) { // 자동차 이름의 길이는 5 이하이다
+        if (name.length() > MAX_CAR_NAME_LENGHT) { // 자동차 이름의 길이는 5 이하이다
             throw new IllegalArgumentException(Message.CAR_NAME_MAX_LENGTH_LIMIT.getMessage());
         }
         if (name == null || name.isEmpty()) { // 자동차 이름이 비어있으면 오류를 반환한다
