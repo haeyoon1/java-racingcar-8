@@ -13,11 +13,15 @@ public class Cars {
     }
 
     public static Cars fromInput(String inputCars) { // 입력 검증 로직을 포함한 Cars 객체 생성 정적 팩토리 메서드
+        if (inputCars == null || inputCars.isEmpty()) {
+            throw new IllegalArgumentException(Message.EMPTY_CAR_INPUT.getMessage());
+        }
+
         List<Car> carList = InputParser.splitCarNames(inputCars)
             .stream()
             .map(Car::new)
             .toList();
-        validateInputCars(carList);
+        validateCars(carList);
 
         return new Cars(carList);
     }
@@ -29,8 +33,8 @@ public class Cars {
         return new Cars(cars);
     }
 
-    private static void validateInputCars(List<Car> cars) {
-        if (cars == null || cars.isEmpty()) { // 자동차 이름 미입력 시 오류 반환
+    private static void validateCars(List<Car> cars) {
+        if (cars == null || cars.isEmpty()){ // 자동차 리스트가 비어있을 시 오류 반환
             throw new IllegalArgumentException(Message.EMPTY_CAR_INPUT.getMessage());
         }
 
