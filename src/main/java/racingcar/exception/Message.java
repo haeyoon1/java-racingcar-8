@@ -1,7 +1,7 @@
 package racingcar.exception;
 
 public enum Message {
-    EMPTY_CAR_INPUT("자동차 이름이 입력되지 않았습니다."),
+    EMPTY_CAR_INPUT("경주할 자동차들의 이름이 입력되지 않았습니다."),
     INVALID_CAR_INPUT("자동차 이름을 두 개 이상 입력해주세요."),
 
     CAR_NAME_MAX_LENGTH_LIMIT("자동차 이름은 5자 이하입니다."),
