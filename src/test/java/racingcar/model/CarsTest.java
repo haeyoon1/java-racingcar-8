@@ -1,12 +1,12 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.Message;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarsTest {
 
@@ -44,7 +44,7 @@ class CarsTest {
         String emptyInput = "";
 
         // when, then
-        assertThatThrownBy(()-> Cars.fromInput(emptyInput))
+        assertThatThrownBy(() -> Cars.fromInput(emptyInput))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(Message.EMPTY_CAR_INPUT.getMessage());
     }
@@ -55,7 +55,7 @@ class CarsTest {
         String emptyInput = ",,";
 
         // when, then
-        assertThatThrownBy(()-> Cars.fromInput(emptyInput))
+        assertThatThrownBy(() -> Cars.fromInput(emptyInput))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(Message.EMPTY_CAR_INPUT.getMessage());
     }
@@ -66,7 +66,7 @@ class CarsTest {
         String carNames = "car1";
 
         // when, then
-        assertThatThrownBy(()-> Cars.fromInput(carNames))
+        assertThatThrownBy(() -> Cars.fromInput(carNames))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(Message.INVALID_CAR_INPUT.getMessage());
     }

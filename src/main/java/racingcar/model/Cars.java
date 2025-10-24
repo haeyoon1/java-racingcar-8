@@ -34,7 +34,7 @@ public class Cars {
     }
 
     private static void validateCars(List<Car> cars) {
-        if (cars == null || cars.isEmpty()){ // 자동차 리스트가 비어있을 시 오류 반환
+        if (cars == null || cars.isEmpty()) { // 자동차 리스트가 비어있을 시 오류 반환
             throw new IllegalArgumentException(Message.EMPTY_CAR_INPUT.getMessage());
         }
 
