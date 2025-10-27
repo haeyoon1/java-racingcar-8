@@ -51,8 +51,8 @@ public class Cars {
         }
     }
 
-    public void moveAll(Cars cars) {
-        for (Car car : cars.getCars()) {
+    public void moveAll() {
+        for (Car car : cars) {
             car.moveCar();
         }
     }
