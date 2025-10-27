@@ -11,7 +11,7 @@ public enum Message {
 
     EMPTY_ROUND_INPUT("경주를 시도할 횟수가 입력되지 않았습니다."),
     ROUND_NOT_NUMBER("시도할 횟수는 정수로 입력해야 합니다."),
-    INVALID_ROUND_INPUT("시도할 횟수는 0 이상입니다."),
+    INVALID_ROUND_INPUT("시도할 횟수는 1 이상입니다."),
 
     WINNING_CAR_LIST_EMPTY("우승자는 한 명 이상입니다."),
     ;
