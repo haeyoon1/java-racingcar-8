@@ -8,29 +8,14 @@ public class Cars {
 
     private List<Car> cars;
 
-    private Cars(List<Car> cars) {
-        this.cars = cars;
-    }
-
-    public static Cars fromInput(String inputCars) { // 입력 검증 로직을 포함한 Cars 객체 생성 정적 팩토리 메서드
-        if (inputCars == null || inputCars.isEmpty()) {
-            throw new IllegalArgumentException(Message.EMPTY_CAR_INPUT.getMessage());
-        }
-
+    public Cars(String inputCars) {
         List<Car> carList = InputParser.splitCarNames(inputCars)
             .stream()
             .map(Car::new)
             .toList();
         validateCars(carList);
 
-        return new Cars(carList);
-    }
-
-    public static Cars from(List<Car> cars) { // Cars 객체 생성 정적 팩토리 메서드 (우승 Cars 객체 생성 시 사용)
-        if (cars == null || cars.isEmpty()) {
-            throw new IllegalArgumentException(Message.WINNING_CAR_LIST_EMPTY.getMessage());
-        }
-        return new Cars(cars);
+        this.cars = carList;
     }
 
     private static void validateCars(List<Car> cars) {
@@ -57,7 +42,7 @@ public class Cars {
         }
     }
 
-    public Cars calculateWinners() {
+    public WinningCars calculateWinners() {
         int maxPosition = cars.stream()
             .mapToInt(Car::getPosition)
             .max()
@@ -67,7 +52,7 @@ public class Cars {
             .filter(car -> car.getPosition() == maxPosition)
             .toList();
 
-        return Cars.from(carList);
+        return new WinningCars(carList);
     }
 
     public List<Car> getCars() {
