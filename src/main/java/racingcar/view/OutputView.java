@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.WinningCars;
 
 public class OutputView {
 
@@ -18,8 +19,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printGameWinner(Cars cars) {
-        List<Car> CarList = cars.getCars();
+    public static void printGameWinner(WinningCars winningCars) {
+        List<Car> CarList = winningCars.getCars();
         String winnersCars = CarList.stream()
             .map(Car::getName)
             .collect(Collectors.joining(", "));

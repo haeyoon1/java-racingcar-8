@@ -10,14 +10,14 @@ public class RacingCarController {
 
     public void run() {
         String inputCarNames = InputView.inputCars();
-        Cars cars = Cars.fromInput(inputCarNames);
+        Cars cars = Cars.from(inputCarNames);
         int inputRounds = InputView.inputRound();
         Round rounds = new Round(inputRounds);
 
         OutputView.printGameResultMessage();
         startRacing(cars, rounds);
 
-        Cars winners = cars.calculateWinners();
+        WinningCars winners = cars.calculateWinners();
         OutputView.printGameWinner(winners);
     }
 
