@@ -22,6 +22,15 @@ class CarTest {
     }
 
     @Test
+    void 자동차_초기_위치는_0이다() {
+        // given
+        Car car = new Car("nam");
+
+        // when & then
+        assertThat(car.getPosition()).isZero();
+    }
+
+    @Test
     void 자동차_이름이_6글자_이상일_때_에러를_반환한다() {
         // given
         String carName = "abcdefg";
