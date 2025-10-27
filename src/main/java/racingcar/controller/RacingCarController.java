@@ -10,7 +10,7 @@ public class RacingCarController {
 
     public void run() {
         String inputCarNames = InputView.inputCars();
-        Cars cars = Cars.from(inputCarNames);
+        Cars cars = new Cars(inputCarNames);
         int inputRounds = InputView.inputRound();
         Round rounds = new Round(inputRounds);
 
