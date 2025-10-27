@@ -9,6 +9,7 @@ public class InputParser {
 
     public static List<String> splitCarNames(String cars) {
         return Arrays.stream(cars.split(PARSER))
+            .map(String::trim)
             .filter(name -> !name.isBlank())
             .toList();
     }
